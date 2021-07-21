@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState} from 'react';
+import ProductCard from '../../components/ProductCard';
 import api from '../../services/api';
 
 interface IProduct {
@@ -10,7 +10,7 @@ interface IProduct {
     Poster: string;
 }
 
-const Produtos = () => {
+const Products = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
 
     const loadingProducts = async () => {
@@ -28,11 +28,19 @@ const Produtos = () => {
             <ul>
                 {products.map(p => {
                     return(
-                        <li>{p.Title}</li>
+                        <li>
+                            <ProductCard
+                                Title={p.Title}
+                                Year={p.Year}
+                                imdbID={p.imdbID}
+                                Type={p.Type}
+                                Poster={p.Poster}
+                            />
+                        </li>
                     );
                 })}
             </ul>
         </>
     );
 }
-export default Produtos;
+export default Products;

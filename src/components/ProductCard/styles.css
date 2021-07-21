@@ -1,0 +1,11 @@
+.product-card {
+    background-color: #555;
+    display: flex;
+    flex-direction: row; /*row é padrao nem precisa*/
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.product-card img {
+    height: 200px;
+}
